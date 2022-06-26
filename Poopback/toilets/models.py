@@ -20,7 +20,12 @@ class Toilet(models.Model):
     is_emergency = models.BooleanField()
     is_cctv = models.BooleanField()
     is_diaper = models.BooleanField()
-    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='liked_toilets', blank=True)
+    x = models.FloatField()
+    y = models.FloatField()
+    cosx = models.FloatField(default=0)
+    cosy = models.FloatField(default=0)
+    sinx = models.FloatField(default=0)
+    siny = models.FloatField(default=0)
 
 
 class Review(models.Model):
@@ -29,5 +34,5 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     toilet = models.ForeignKey(Toilet, on_delete=models.CASCADE, related_name='reviews')
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='reviews')
-    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_reviews', blank=True)
+    password = models.CharField(max_length=100)
+    

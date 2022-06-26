@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # local apps
-    'accounts',
     'toilets',
 
     # 3rd party apps
@@ -153,7 +152,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-AUTH_USER_MODEL = 'accounts.User'
 CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
@@ -161,6 +159,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
+        'rest_framework.permissions.AllowAny'
     ]
 }
